@@ -258,6 +258,8 @@ GameObject:
   - component: {fileID: 4284087898507490409}
   - component: {fileID: 4284087898515133609}
   - component: {fileID: 4284087898521281261}
+  - component: {fileID: -9104370728457174109}
+  - component: {fileID: 2458153609514216350}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -380,3 +382,40 @@ MonoBehaviour:
     slowDownRate: 20
     airControl: 0
     shellOffset: 0
+--- !u!114 &-9104370728457174109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4284087898510546703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22d9e6ddfb34ad342bce2640371ad91d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crowbar: 0
+  gasCan: 0
+  candle: 0
+  lantern: 0
+  sparkPlugs: 0
+  ductTape: 0
+  match: 0
+--- !u!114 &2458153609514216350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4284087898510546703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cbb319de4172f543a7e049c0bb368d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactedObject: {fileID: 0}
+  playerReach: 4
+  interactionLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  playerInventory: {fileID: 0}
