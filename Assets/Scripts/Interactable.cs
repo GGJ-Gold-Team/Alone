@@ -6,6 +6,8 @@ public class Interactable : MonoBehaviour {
     [SerializeField] Canvas canvas;
     [SerializeField] UnityEngine.UI.Text text;
     [SerializeField] UnityEngine.UI.Image image;
+    [SerializeField] ItemType itemType;
+    [SerializeField] bool canPickUp = false;
 
     RectTransform canvasTransform;
     bool isHovering = false;
@@ -14,7 +16,7 @@ public class Interactable : MonoBehaviour {
     void Start() {
         canvasTransform = canvas.GetComponent<RectTransform>();
         player = GameObject.FindGameObjectWithTag("MainCamera");
-        text.text = String.Format("(space) Interact with {0}", this.gameObject.name);
+        text.text = String.Format("(Space) Interact with {0}", StringUtils.SpaceCase(itemType.ToString()));
         RectTransform textRectTransform = text.GetComponent<RectTransform>();
         RectTransform imageRectTransform = image.GetComponent<RectTransform>();
         imageRectTransform.sizeDelta = new Vector2(text.preferredWidth + 10f, imageRectTransform.rect.height);
@@ -33,4 +35,26 @@ public class Interactable : MonoBehaviour {
     public void SetHover(bool newIsHovering) {
         isHovering = newIsHovering;
     }
+
+    public ItemType GetItemType {
+        get {
+            return itemType;
+        }
+    }
+
+    public bool CanPickUp {
+        get {
+            return canPickUp;
+        }
+    }
+}
+
+public enum ItemType {
+    Candle,
+    Crowbar,
+    DuctTape,
+    GasCan,
+    Lantern,
+    Match,
+    SparkPlugs
 }

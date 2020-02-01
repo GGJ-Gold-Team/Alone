@@ -674,6 +674,8 @@ MonoBehaviour:
   canvas: {fileID: 1520787389}
   text: {fileID: 1487948216}
   image: {fileID: 1500534582}
+  itemType: 3
+  canPickUp: 1
 --- !u!1001 &25394604320032567
 PrefabInstance:
   m_ObjectHideFlags: 0

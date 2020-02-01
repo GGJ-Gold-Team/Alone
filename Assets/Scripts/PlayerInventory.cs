@@ -21,20 +21,20 @@ public class PlayerInventory : MonoBehaviour {
         match = 5;
     }
 
-    public void itemUpdated(string item) {
-        if (item == "crowbar") {
+    public void itemUpdated(ItemType item) {
+        if (item == ItemType.Crowbar) {
             this.crowbar = true;
-        } else if (item == "gasCan") {
+        } else if (item == ItemType.GasCan) {
             this.gasCan = true;
-        } else if (item == "candle") {
+        } else if (item == ItemType.Candle) {
             this.candle = true;
-        } else if (item == "lantern") {
+        } else if (item == ItemType.Lantern) {
             this.lantern = true;
-        } else if (item == "sparkPlugs") {
+        } else if (item == ItemType.SparkPlugs) {
             this.sparkPlugs = true;
-        } else if (item == "ductTape") {
+        } else if (item == ItemType.DuctTape) {
             this.ductTape = true;
-        } else if (item == "match") {
+        } else if (item == ItemType.Match) {
             this.match++;
         }
     }

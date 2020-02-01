@@ -413,9 +413,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cbb319de4172f543a7e049c0bb368d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCamera: {fileID: 4284087898510546701}
   interactedObject: {fileID: 0}
-  playerReach: 2
   interactionLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  playerInventory: {fileID: 0}
+  playerInventory: {fileID: -9104370728457174109}
+  playerReach: 2
