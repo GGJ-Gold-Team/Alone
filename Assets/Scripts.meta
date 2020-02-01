@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 1e43d9499053f2a4cac41e5d118e25fe
+=======
+guid: 8c17727f799b2ab4fafd2d03cb97a67d
+>>>>>>> added object detection for the player
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
