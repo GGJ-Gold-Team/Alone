@@ -22,7 +22,7 @@ public class FireLightSource : MonoBehaviour {
         safeZone = GetComponent<Collider>();
         deathTimer = GameObject.FindGameObjectWithTag("Player").GetComponent<DeathTimer>();
 
-        Debug.Log(System.String.Format("safetyThreshold onStart: {0}", safetyThreshold));
+        // Debug.Log(System.String.Format("safetyThreshold onStart: {0}", safetyThreshold));
 
         itemTimer.onTimerDepleteCallback = onDeplete;
 
