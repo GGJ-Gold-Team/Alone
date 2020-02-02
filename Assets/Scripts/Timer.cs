@@ -78,6 +78,14 @@ public class Timer : MonoBehaviour {
         }
     }
 
+    public void toggleInfinite(bool newIsInfinite) {
+        isInfinite = newIsInfinite;
+
+        if (isInfinite) {
+            currentTimerValue = initialTimerValue;
+        }
+    }
+
     void onTimerDeplete() {
         isTimerRunning = false;
         currentTimerValue = 0; // ensures the timer gets reset correctly in case there is ever a negative value

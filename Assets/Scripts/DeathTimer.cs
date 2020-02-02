@@ -51,4 +51,10 @@ public class DeathTimer : MonoBehaviour {
         SceneManager.LoadScene("Lost");
         Debug.Log("You are Dead");
     }
+
+    public void toggleInfinite(bool isInfinite) {
+        deathTimer = GetComponent<Timer>();
+        Debug.Log("DeathTimer: " + isInfinite);
+        deathTimer.toggleInfinite(isInfinite);
+    }
 }

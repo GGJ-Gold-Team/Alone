@@ -117,6 +117,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
+        bool canMoveCamera = true;
+        public bool CanMoveCamera {
+            get {
+                return canMoveCamera;
+            }
+
+            set {
+                canMoveCamera = value;
+            }
+        }
+
 
         private void Start()
         {
@@ -128,7 +139,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void Update()
         {
-            RotateView();
+            Debug.Log("RigidbodyFirstPersonController Update");
+            if (canMoveCamera) {
+                Debug.Log("RigidbodyFirstPersonController Update canMoveCamera");
+                RotateView();
+            }
 
             if (CrossPlatformInputManager.GetButtonDown("Jump") && !m_Jump)
             {
