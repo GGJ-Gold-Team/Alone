@@ -62,9 +62,9 @@ public class Interactable : MonoBehaviour {
     }
 
     public virtual void OnInteraction() {
-        Timer itemTimer = GetComponent<Timer>();
-        if (itemTimer && itemType == ItemType.Candle) {
-            itemTimer.onTimerToggle(false);
+        if (itemType == ItemType.Candle) {
+            FireLightSource candleLight = GetComponentInChildren<FireLightSource>();
+            candleLight.onToggleLightSource(false);
         }
     }
 }
