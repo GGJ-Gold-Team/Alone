@@ -37,6 +37,7 @@ public class PlayerInteraction : MonoBehaviour {
             bool canPickUp = objectInteractable.CanPickUp;
 
             Debug.Log(String.Format("Picked up {0}", pickedUpItem));
+            objectInteractable.onInteraction();
 
             if(canPickUp) {
                 playerInventory.itemUpdated(pickedUpItem);
