@@ -20,13 +20,13 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
+  m_AmbientSkyColor: {r: 0.078431375, g: 0.078431375, b: 0.078431375, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 81f714daf7144784b8a2f42f1cd30927, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 36fd1cce0e97a4440b68d4fcc8be6cdf, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.23236844, g: 0.23554417, b: 0.27230176, a: 1}
+  m_IndirectSpecularColor: {r: 0.0073769097, g: 0.0076010474, b: 0.0073769097, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -195,7 +195,8 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: Infinity, y: -Infinity, z: -Infinity, w: -Infinity}
+  m_BoundingSphereOverride: {x: -2.3404263e-24, y: 2.3937171e-21, z: -3.0590932e+31,
+    w: NaN}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -901,7 +902,7 @@ PrefabInstance:
     - target: {fileID: 147094107864809703, guid: 33aa2f657469bbe409bb4aefd407b46f,
         type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 0
+      value: 8.41e-43
       objectReference: {fileID: 0}
     - target: {fileID: 147094107864809703, guid: 33aa2f657469bbe409bb4aefd407b46f,
         type: 3}
@@ -911,12 +912,12 @@ PrefabInstance:
     - target: {fileID: 147094107864809703, guid: 33aa2f657469bbe409bb4aefd407b46f,
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 2.84e-43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 147094107864809703, guid: 33aa2f657469bbe409bb4aefd407b46f,
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 0.0000000012155645
+      value: 8.770261e-28
       objectReference: {fileID: 0}
     - target: {fileID: 6197904551568278804, guid: 33aa2f657469bbe409bb4aefd407b46f,
         type: 3}
