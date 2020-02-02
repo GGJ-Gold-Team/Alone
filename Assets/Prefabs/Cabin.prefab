@@ -1130,9 +1130,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c045715d0c9a654ea58b53e2cb727c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 6550518537361092789}
   text: {fileID: 4540931208188879990}
   image: {fileID: 898585810182455862}
+  canvas: {fileID: 6550518537361092789}
   itemType: 3
   canPickUp: 0
   shouldDestroyOnPickup: 0
@@ -1332,6 +1332,11 @@ PrefabInstance:
     - target: {fileID: 1882221807, guid: 566470414efc3f1408ae7f6cf5a0018a, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 375728787229241645, guid: 566470414efc3f1408ae7f6cf5a0018a,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2313258218588766468, guid: 566470414efc3f1408ae7f6cf5a0018a,
         type: 3}
