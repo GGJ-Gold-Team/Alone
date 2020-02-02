@@ -43,4 +43,8 @@ public class PlayerInventory : MonoBehaviour {
 
         holdController.EquipItem(item);
     }
+
+    public bool hasAllCarItems() {
+        return gasCan && sparkPlugs;
+    }
 }
