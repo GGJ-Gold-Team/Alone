@@ -327,10 +327,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 4284087898511922473}
   movementSettings:
-    ForwardSpeed: 8
-    BackwardSpeed: 4
-    StrafeSpeed: 4
-    RunMultiplier: 2
+    ForwardSpeed: 5
+    BackwardSpeed: 5
+    StrafeSpeed: 3
+    RunMultiplier: 1
     RunKey: 304
     JumpForce: 0
     SlopeCurveModifier:
@@ -414,9 +414,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 4284087898510546701}
-  interactedObject: {fileID: 0}
+  playerInventory: {fileID: -9104370728457174109}
   interactionLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  playerInventory: {fileID: -9104370728457174109}
   playerReach: 2
