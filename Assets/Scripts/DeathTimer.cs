@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class DeathTimer : MonoBehaviour {
     [SerializeField] UnityEngine.UI.Text uiTimer;
@@ -48,6 +48,7 @@ public class DeathTimer : MonoBehaviour {
     }
 
     void onDeath() {
+        SceneManager.LoadScene("Lost");
         Debug.Log("You are Dead");
     }
 
