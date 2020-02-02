@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// using UnityEngine.SceneManagement;
 
 public class DeathTimer : MonoBehaviour {
     [SerializeField] UnityEngine.UI.Text uiTimer;
@@ -48,5 +49,11 @@ public class DeathTimer : MonoBehaviour {
 
     void onDeath() {
         Debug.Log("You are Dead");
+    }
+
+    public void toggleInfinite(bool isInfinite) {
+        deathTimer = GetComponent<Timer>();
+        Debug.Log("DeathTimer: " + isInfinite);
+        deathTimer.toggleInfinite(isInfinite);
     }
 }

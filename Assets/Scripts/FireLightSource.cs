@@ -87,4 +87,9 @@ public class FireLightSource : MonoBehaviour {
             isPlayerTriggered = false;
         }
     }
+
+    public void toggleInfinite(bool isInfinite) {
+        itemTimer = GetComponent<Timer>();
+        itemTimer.toggleInfinite(isInfinite);
+    }
 }

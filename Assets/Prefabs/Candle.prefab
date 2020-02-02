@@ -4838,6 +4838,8 @@ MonoBehaviour:
   itemTimer: {fileID: 0}
   safeZone: {fileID: 0}
   isDepleted: 0
+  lightOnStart: 0
+  isPlayerTriggered: 0
   deathTimer: {fileID: 0}
   safetyThreshold: 10
 --- !u!114 &6008238025464210046
@@ -4966,7 +4968,7 @@ GameObject:
   - component: {fileID: 3518410574940304258}
   m_Layer: 8
   m_Name: Candle
-  m_TagString: Untagged
+  m_TagString: SafeZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

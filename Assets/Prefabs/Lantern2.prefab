@@ -25,12 +25,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980770118243599482}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3341994121708161478}
-  m_RootOrder: 2
+  m_Father: {fileID: 1438529039171514314}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &1749111088829794722
 ParticleSystem:
@@ -4860,7 +4860,7 @@ RectTransform:
   - {fileID: 5329211276063631702}
   - {fileID: 6751164503948321484}
   m_Father: {fileID: 3341994121708161478}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5028,12 +5028,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6912093786567059513}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.398, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3341994121708161478}
-  m_RootOrder: 0
+  m_Father: {fileID: 1438529039171514314}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &7398083929714387119
 Light:
@@ -5109,11 +5109,9 @@ GameObject:
   - component: {fileID: 2179039067837383459}
   - component: {fileID: 199102217685864524}
   - component: {fileID: 6537222757020889245}
-  - component: {fileID: 4261841256420002276}
-  - component: {fileID: 1708180755434380667}
   m_Layer: 8
   m_Name: Lantern2
-  m_TagString: Untagged
+  m_TagString: SafeZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5129,9 +5127,8 @@ Transform:
   m_LocalPosition: {x: -8.041992, y: 0, z: -8.146309}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6538499256250596553}
   - {fileID: 8561986287202020050}
-  - {fileID: 5528750809000247571}
+  - {fileID: 1438529039171514314}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5217,13 +5214,47 @@ MonoBehaviour:
   image: {fileID: 1509718103361572492}
   itemType: 0
   canPickUp: 0
---- !u!114 &4261841256420002276
+--- !u!1 &7748746640253123664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1438529039171514314}
+  - component: {fileID: 7356205710819441956}
+  - component: {fileID: 7284202421900977951}
+  m_Layer: 8
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1438529039171514314
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7748746640253123664}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5528750809000247571}
+  - {fileID: 6538499256250596553}
+  m_Father: {fileID: 3341994121708161478}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7356205710819441956
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7589610940137080271}
+  m_GameObject: {fileID: 7748746640253123664}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68b7a437996a43643a19342f26aa9290, type: 3}
@@ -5231,16 +5262,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightElement: {fileID: 7398083929714387119}
   particleElement: {fileID: 1749111088829794722}
-  itemTimer: {fileID: 1708180755434380667}
+  itemTimer: {fileID: 0}
+  safeZone: {fileID: 0}
   isDepleted: 0
   lightOnStart: 0
---- !u!114 &1708180755434380667
+  isPlayerTriggered: 0
+  deathTimer: {fileID: 0}
+  safetyThreshold: 0
+--- !u!114 &7284202421900977951
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7589610940137080271}
+  m_GameObject: {fileID: 7748746640253123664}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59709b804d08db5409a0f7426364f586, type: 3}
@@ -5249,4 +5284,6 @@ MonoBehaviour:
   initialTimerValue: 60
   isTimerRunning: 0
   currentTimerValue: 0
+  timerThreshold: 0
+  hasThresholdTriggered: 0
   isInfinite: 0
