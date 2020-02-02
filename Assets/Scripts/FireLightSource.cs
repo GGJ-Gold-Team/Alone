@@ -7,6 +7,7 @@ public class FireLightSource : MonoBehaviour {
     [SerializeField] ParticleSystem particleElement;
     [SerializeField] Timer itemTimer;
     [SerializeField] bool isDepleted;
+    [SerializeField] bool lightOnStart = false;
 
     void Start() {
         isDepleted = false;
@@ -16,8 +17,10 @@ public class FireLightSource : MonoBehaviour {
 
         itemTimer.onTimerDepleteCallback = onDeplete;
 
-        lightElement.enabled = false;
-        particleElement.Stop();
+        lightElement.enabled = lightOnStart;
+        if (particleElement && !lightOnStart) {
+            particleElement.Stop();
+        }
     }
 
     public void onToggleLightSource(bool shouldDepleteOnToggle) {
@@ -25,11 +28,15 @@ public class FireLightSource : MonoBehaviour {
             itemTimer.onTimerToggle(shouldDepleteOnToggle);
 
             if (lightElement.enabled) {
-                particleElement.Stop();
-                particleElement.Clear();
+                if (particleElement) {
+                    particleElement.Stop();
+                    particleElement.Clear();
+                }
                 lightElement.enabled = false;
             } else {
-                particleElement.Play();
+                if (particleElement) {
+                    particleElement.Play();
+                }
                 lightElement.enabled = true;
             }
         }
@@ -38,7 +45,9 @@ public class FireLightSource : MonoBehaviour {
     void onDeplete() {
         lightElement.enabled = false;
         isDepleted = true;
-        particleElement.Stop();
-        particleElement.Clear();
+        if (particleElement) {
+            particleElement.Stop();
+            particleElement.Clear();
+        }
     }
 }
