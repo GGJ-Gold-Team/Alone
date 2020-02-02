@@ -47,6 +47,13 @@ public class Interactable : MonoBehaviour {
             return canPickUp;
         }
     }
+
+    public void onInteraction() {
+        if (itemType == ItemType.Candle) {
+            Timer itemTimer = GetComponent<Timer>();
+            itemTimer.onTimerToggle(false);
+        }
+    }
 }
 
 public enum ItemType {
