@@ -30,7 +30,7 @@ public class Interactable : MonoBehaviour {
         canvasTransform.position = rayPosition;
 
         // Look at player at all times
-        canvasTransform.LookAt(transform.position - player.transform.position);
+        canvasTransform.LookAt(2f * transform.position - player.transform.position);
     }
 
     public void SetHover(bool newIsHovering) {
@@ -71,6 +71,7 @@ public class Interactable : MonoBehaviour {
 
 public enum ItemType {
     Candle,
+    Car,
     Crowbar,
     Door,
     DuctTape,
