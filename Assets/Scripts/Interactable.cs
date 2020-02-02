@@ -9,11 +9,12 @@ public class Interactable : MonoBehaviour {
     [SerializeField] ItemType itemType;
     [SerializeField] bool canPickUp = false;
 
+    Vector3 rayPosition;
     RectTransform canvasTransform;
     bool isHovering = false;
     GameObject player;
 
-    void Start() {
+    public void Start() {
         canvasTransform = canvas.GetComponent<RectTransform>();
         player = GameObject.FindGameObjectWithTag("MainCamera");
         text.text = String.Format("(Space) Interact with {0}", StringUtils.SpaceCase(itemType.ToString()));
@@ -22,14 +23,14 @@ public class Interactable : MonoBehaviour {
         imageRectTransform.sizeDelta = new Vector2(text.preferredWidth + 10f, imageRectTransform.rect.height);
     }
 
-    void Update() {
+    public void Update() {
         canvas.enabled = isHovering;
 
-        // Static position regardless of parent rotation
-        canvasTransform.position = transform.position + new Vector3(0, 0.5f);
+        // Follows hit location
+        canvasTransform.position = rayPosition;
 
         // Look at player at all times
-        canvasTransform.LookAt(2f * transform.position - player.transform.position);
+        canvasTransform.LookAt(transform.position - player.transform.position);
     }
 
     public void SetHover(bool newIsHovering) {
@@ -42,15 +43,27 @@ public class Interactable : MonoBehaviour {
         }
     }
 
+    public bool IsHovering {
+        get {
+            return isHovering;
+        }
+    }
+
     public bool CanPickUp {
         get {
             return canPickUp;
         }
     }
 
-    public void onInteraction() {
-        if (itemType == ItemType.Candle) {
-            Timer itemTimer = GetComponent<Timer>();
+    public Vector3 RayPosition {
+        set {
+            rayPosition = value;
+        }
+    }
+
+    public virtual void OnInteraction() {
+        Timer itemTimer = GetComponent<Timer>();
+        if (itemTimer && itemType == ItemType.Candle) {
             itemTimer.onTimerToggle(false);
         }
     }
@@ -59,7 +72,9 @@ public class Interactable : MonoBehaviour {
 public enum ItemType {
     Candle,
     Crowbar,
+    Door,
     DuctTape,
+    Fireplace,
     GasCan,
     Lantern,
     Match,

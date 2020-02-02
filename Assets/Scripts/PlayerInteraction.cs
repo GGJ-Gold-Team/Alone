@@ -19,6 +19,7 @@ public class PlayerInteraction : MonoBehaviour {
             objectInteractable = interactedObject.GetComponent<Interactable>();
             if (objectInteractable) {
                 objectInteractable.SetHover(true);
+                objectInteractable.RayPosition = hit.point;
             }
             // Debug.DrawRay(playerCamera.transform.position, playerCamera.transform.TransformDirection(Vector3.forward) * playerReach, Color.green);
         } else {
@@ -36,10 +37,11 @@ public class PlayerInteraction : MonoBehaviour {
             ItemType pickedUpItem = objectInteractable.GetItemType;
             bool canPickUp = objectInteractable.CanPickUp;
 
-            Debug.Log(String.Format("Picked up {0}", pickedUpItem));
-            objectInteractable.onInteraction();
+            objectInteractable.OnInteraction();
+            // Debug.Log(String.Format("Interacted with: {0}", pickedUpItem));
 
             if(canPickUp) {
+            // Debug.Log(String.Format("Picked up {0}", pickedUpItem));
                 playerInventory.itemUpdated(pickedUpItem);
             }
         }

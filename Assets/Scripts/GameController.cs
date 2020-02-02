@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetButtonDown("Pause")) {
+        if (Input.GetButtonDown("Cancel")) {
             if (isPaused) {
                 Unpause();
             } else {
