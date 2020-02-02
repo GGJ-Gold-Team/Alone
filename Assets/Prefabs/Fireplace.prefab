@@ -80,7 +80,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 512
   m_RenderingLayerMask: 1
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
@@ -172,7 +172,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 512
   m_RenderingLayerMask: 1
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
@@ -194,7 +194,12 @@ PrefabInstance:
     - target: {fileID: 3518410574940304258, guid: a45f9c7fa6b4a224cae6d204b45567cf,
         type: 3}
       propertyPath: itemType
-      value: 4
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3518410574940304258, guid: a45f9c7fa6b4a224cae6d204b45567cf,
+        type: 3}
+      propertyPath: canPickUp
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3518410574940304259, guid: a45f9c7fa6b4a224cae6d204b45567cf,
         type: 3}
