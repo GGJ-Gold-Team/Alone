@@ -6,18 +6,27 @@ public class FireLightSource : MonoBehaviour {
     [SerializeField] Light lightElement;
     [SerializeField] ParticleSystem particleElement;
     [SerializeField] Timer itemTimer;
+    [SerializeField] Collider safeZone;
     [SerializeField] bool isDepleted;
     [SerializeField] bool lightOnStart = false;
+
+    [SerializeField] DeathTimer deathTimer;
+    [SerializeField] float safetyThreshold;
 
     void Start() {
         isDepleted = false;
         lightElement = GetComponentInChildren<Light>();
         particleElement = GetComponentInChildren<ParticleSystem>();
         itemTimer = GetComponent<Timer>();
+        safeZone = GetComponent<Collider>();
+        deathTimer = GameObject.FindGameObjectWithTag("Player").GetComponent<DeathTimer>();
+
+        Debug.Log(System.String.Format("safetyThreshold onStart: {0}", safetyThreshold));
 
         itemTimer.onTimerDepleteCallback = onDeplete;
 
         lightElement.enabled = lightOnStart;
+        safeZone.enabled = lightOnStart;
         if (particleElement && !lightOnStart) {
             particleElement.Stop();
         }
@@ -29,7 +38,7 @@ public class FireLightSource : MonoBehaviour {
 
     public void onToggleLightSource(bool shouldDepleteOnToggle) {
         if (!isDepleted) {
-            itemTimer.onTimerToggle(shouldDepleteOnToggle);
+            itemTimer.onTimerToggle(shouldDepleteOnToggle: shouldDepleteOnToggle);
 
             if (lightElement.enabled) {
                 if (particleElement) {
@@ -37,11 +46,14 @@ public class FireLightSource : MonoBehaviour {
                     particleElement.Clear();
                 }
                 lightElement.enabled = false;
+                safeZone.enabled = false;
+                deathTimer.leaveSafeZone(safetyThreshold);
             } else {
                 if (particleElement) {
                     particleElement.Play();
                 }
                 lightElement.enabled = true;
+                safeZone.enabled = true;
             }
         }
     }
@@ -52,6 +64,18 @@ public class FireLightSource : MonoBehaviour {
         if (particleElement) {
             particleElement.Stop();
             particleElement.Clear();
+        }
+    }
+
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "Player") {
+            deathTimer.enterSafeZone(safetyThreshold);
+        }
+    }
+
+    void OnTriggerExit(Collider other) {
+        if (other.gameObject.tag == "Player") {
+            deathTimer.leaveSafeZone(safetyThreshold);
         }
     }
 }

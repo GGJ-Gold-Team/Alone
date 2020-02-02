@@ -260,6 +260,8 @@ GameObject:
   - component: {fileID: 4284087898521281261}
   - component: {fileID: -9104370728457174109}
   - component: {fileID: 2458153609514216350}
+  - component: {fileID: 5784258235414706570}
+  - component: {fileID: -4750878215288082861}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -419,3 +421,38 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   playerReach: 2
+--- !u!114 &5784258235414706570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4284087898510546703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59709b804d08db5409a0f7426364f586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialTimerValue: 0
+  isTimerRunning: 0
+  currentTimerValue: 0
+  timerThreshold: 0
+  hasThresholdTriggered: 0
+  isInfinite: 0
+--- !u!114 &-4750878215288082861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4284087898510546703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b47b55154ce4ae24ca2a3e01a2502684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialTime: 20
+  currentTime: 0
+  isTimerRunning: 0
+  timerSafetyBuffer: 0
+  deathTimer: {fileID: 0}
