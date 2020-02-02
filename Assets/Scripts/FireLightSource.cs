@@ -9,6 +9,7 @@ public class FireLightSource : MonoBehaviour {
     [SerializeField] Collider safeZone;
     [SerializeField] bool isDepleted;
     [SerializeField] bool lightOnStart = false;
+    [SerializeField] bool isPlayerTriggered = false;
 
     [SerializeField] DeathTimer deathTimer;
     [SerializeField] float safetyThreshold;
@@ -48,6 +49,7 @@ public class FireLightSource : MonoBehaviour {
                 lightElement.enabled = false;
                 safeZone.enabled = false;
                 deathTimer.leaveSafeZone(safetyThreshold);
+                isPlayerTriggered = false;
             } else {
                 if (particleElement) {
                     particleElement.Play();
@@ -61,6 +63,11 @@ public class FireLightSource : MonoBehaviour {
     void onDeplete() {
         lightElement.enabled = false;
         isDepleted = true;
+        if (isPlayerTriggered) {
+            isPlayerTriggered = false;
+            deathTimer.leaveSafeZone(safetyThreshold);
+        }
+
         if (particleElement) {
             particleElement.Stop();
             particleElement.Clear();
@@ -70,12 +77,14 @@ public class FireLightSource : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") {
             deathTimer.enterSafeZone(safetyThreshold);
+            isPlayerTriggered = true;
         }
     }
 
     void OnTriggerExit(Collider other) {
         if (other.gameObject.tag == "Player") {
             deathTimer.leaveSafeZone(safetyThreshold);
+            isPlayerTriggered = false;
         }
     }
 }
