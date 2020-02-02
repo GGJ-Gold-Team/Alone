@@ -21,6 +21,10 @@ public class FireLightSource : MonoBehaviour {
         if (particleElement && !lightOnStart) {
             particleElement.Stop();
         }
+
+        if (lightOnStart) {
+            itemTimer.onTimerToggle(false);
+        }
     }
 
     public void onToggleLightSource(bool shouldDepleteOnToggle) {
