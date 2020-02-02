@@ -8,6 +8,7 @@ public class Interactable : MonoBehaviour {
     [SerializeField] UnityEngine.UI.Image image;
     [SerializeField] ItemType itemType;
     [SerializeField] bool canPickUp = false;
+    [SerializeField] bool shouldDestroyOnPickup = false;
 
     Vector3 rayPosition;
     RectTransform canvasTransform;
@@ -66,6 +67,10 @@ public class Interactable : MonoBehaviour {
             FireLightSource candleLight = GetComponentInChildren<FireLightSource>();
             candleLight.onToggleLightSource(false);
         }
+
+        if (shouldDestroyOnPickup) {
+            Destroy(this.gameObject);
+        }
     }
 }
 
@@ -77,6 +82,7 @@ public enum ItemType {
     DuctTape,
     Fireplace,
     GasCan,
+    Key,
     Lantern,
     Match,
     SparkPlugs

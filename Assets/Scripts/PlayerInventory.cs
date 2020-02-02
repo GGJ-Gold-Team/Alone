@@ -11,7 +11,10 @@ public class PlayerInventory : MonoBehaviour {
     [SerializeField] bool ductTape;
     [SerializeField] int match;
 
+    PlayerHoldController holdController;
+
     void Start() {
+        holdController = GetComponent<PlayerHoldController>();
         crowbar = false;
         gasCan = false;
         candle = false;
@@ -37,5 +40,7 @@ public class PlayerInventory : MonoBehaviour {
         } else if (item == ItemType.Match) {
             this.match++;
         }
+
+        holdController.EquipItem(item);
     }
 }

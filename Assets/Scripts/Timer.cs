@@ -6,7 +6,7 @@ public class Timer : MonoBehaviour {
     [SerializeField] public float initialTimerValue;
     [SerializeField] public bool isTimerRunning = false;
     [SerializeField] public float currentTimerValue;
-    
+
     public delegate void OnTimerDepleteCallback();
     public OnTimerDepleteCallback onTimerDepleteCallback;
 
@@ -42,7 +42,7 @@ public class Timer : MonoBehaviour {
 
     // shouldDepleteOnToggle may be necessary for matches
     public void onTimerToggle(bool setToggleValue = false, bool newToggleValue = false, bool shouldDepleteOnToggle = false) {
-        Debug.Log("timer toggled");
+        // Debug.Log("timer toggled");
 
         if (setToggleValue) {
             if (isTimerRunning && newToggleValue == false) {
@@ -84,5 +84,5 @@ public class Timer : MonoBehaviour {
         if (onTimerDepleteCallback != null) {
             onTimerDepleteCallback();
         }
-    } 
+    }
 }

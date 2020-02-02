@@ -31,7 +31,6 @@ public class PlayerAudioManager : MonoBehaviour {
             AudioSource source = walkingSnowAudioSource;
             RaycastHit cabinHit;
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out cabinHit, 2f, cabinLayer)) {
-                Debug.Log("Cabin Floor Hit");
                 source = walkingCabinAudioSource;
             }
 
