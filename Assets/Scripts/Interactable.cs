@@ -3,17 +3,18 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour {
 
+    public UnityEngine.UI.Text text;
+    public UnityEngine.UI.Image image;
+
     [SerializeField] Canvas canvas;
-    [SerializeField] UnityEngine.UI.Text text;
-    [SerializeField] UnityEngine.UI.Image image;
     [SerializeField] ItemType itemType;
     [SerializeField] bool canPickUp = false;
     [SerializeField] bool shouldDestroyOnPickup = false;
 
-    Vector3 rayPosition;
-    RectTransform canvasTransform;
-    bool isHovering = false;
-    GameObject player;
+    [HideInInspector] Vector3 rayPosition;
+    [HideInInspector] RectTransform canvasTransform;
+    [HideInInspector] bool isHovering = false;
+    [HideInInspector] GameObject player;
 
     public void Start() {
         canvasTransform = canvas.GetComponent<RectTransform>();
@@ -57,8 +58,42 @@ public class Interactable : MonoBehaviour {
     }
 
     public Vector3 RayPosition {
+        get {
+            return rayPosition;
+        }
+
         set {
             rayPosition = value;
+        }
+    }
+
+    public Canvas GetCanvas {
+        get {
+            return canvas;
+        }
+
+        set {
+            canvas = value;
+        }
+    }
+
+    public RectTransform CanvasTransform {
+        get {
+            return canvasTransform;
+        }
+
+        set {
+            canvasTransform = value;
+        }
+    }
+
+    public GameObject Player {
+        get {
+            return player;
+        }
+
+        set {
+            player = value;
         }
     }
 
