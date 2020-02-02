@@ -74,6 +74,7 @@ public enum ItemType {
     Crowbar,
     Door,
     DuctTape,
+    Fireplace,
     GasCan,
     Lantern,
     Match,

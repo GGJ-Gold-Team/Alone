@@ -983,7 +983,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: (Space) to interact with Door
 --- !u!1 &8845322610250377741
 GameObject:
   m_ObjectHideFlags: 0
