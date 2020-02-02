@@ -85,4 +85,10 @@ public class Timer : MonoBehaviour {
             onTimerDepleteCallback();
         }
     }
+
+    public float GetCurrentTime {
+        get {
+            return currentTimerValue;
+        }
+    }
 }

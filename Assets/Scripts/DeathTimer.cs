@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DeathTimer : MonoBehaviour {
+    [SerializeField] UnityEngine.UI.Text uiTimer;
     [SerializeField] float initialTime;
     [SerializeField] float currentTime;
     [SerializeField] bool isTimerRunning;
@@ -17,6 +18,10 @@ public class DeathTimer : MonoBehaviour {
         deathTimer.onTimerDepleteCallback = onDeath;
     }
 
+    void Update() {
+        uiTimer.text = System.String.Format("{0}", StringUtils.FormatTimer(deathTimer.GetCurrentTime));
+    }
+
     public void enterSafeZone(float safeZoneBuffer) {
         timerSafetyBuffer += safeZoneBuffer;
         deathTimer.setThreshold(timerSafetyBuffer);
@@ -26,7 +31,7 @@ public class DeathTimer : MonoBehaviour {
             deathTimer.setTime(safeZoneBuffer);
         }
     }
-    
+
     public void leaveSafeZone(float safeZoneBuffer) {
         timerSafetyBuffer -= safeZoneBuffer;
         deathTimer.setThreshold(timerSafetyBuffer);
