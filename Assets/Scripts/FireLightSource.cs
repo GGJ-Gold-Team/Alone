@@ -11,7 +11,6 @@ public class FireLightSource : MonoBehaviour {
     [SerializeField] bool lightOnStart = false;
     [SerializeField] bool isPlayerTriggered = false;
 
-    [SerializeField] DeathTimer deathTimer;
     [SerializeField] float safetyThreshold;
 
     void Start() {
@@ -20,7 +19,6 @@ public class FireLightSource : MonoBehaviour {
         particleElement = GetComponentInChildren<ParticleSystem>();
         itemTimer = GetComponent<Timer>();
         safeZone = GetComponent<Collider>();
-        deathTimer = GameObject.FindGameObjectWithTag("Player").GetComponent<DeathTimer>();
 
         // Debug.Log(System.String.Format("safetyThreshold onStart: {0}", safetyThreshold));
 
@@ -48,7 +46,7 @@ public class FireLightSource : MonoBehaviour {
                 }
                 lightElement.enabled = false;
                 safeZone.enabled = false;
-                deathTimer.leaveSafeZone(safetyThreshold);
+                DeathTimer.Instance.leaveSafeZone(safetyThreshold);
                 isPlayerTriggered = false;
             } else {
                 if (particleElement) {
@@ -65,7 +63,7 @@ public class FireLightSource : MonoBehaviour {
         isDepleted = true;
         if (isPlayerTriggered) {
             isPlayerTriggered = false;
-            deathTimer.leaveSafeZone(safetyThreshold);
+            DeathTimer.Instance.leaveSafeZone(safetyThreshold);
         }
 
         if (particleElement) {
@@ -76,14 +74,14 @@ public class FireLightSource : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") {
-            deathTimer.enterSafeZone(safetyThreshold);
+            DeathTimer.Instance.enterSafeZone(safetyThreshold);
             isPlayerTriggered = true;
         }
     }
 
     void OnTriggerExit(Collider other) {
         if (other.gameObject.tag == "Player") {
-            deathTimer.leaveSafeZone(safetyThreshold);
+            DeathTimer.Instance.leaveSafeZone(safetyThreshold);
             isPlayerTriggered = false;
         }
     }

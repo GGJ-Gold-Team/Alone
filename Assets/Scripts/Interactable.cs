@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[System.Serializable]
 public class Interactable : MonoBehaviour {
 
     public UnityEngine.UI.Text text;
@@ -11,34 +12,48 @@ public class Interactable : MonoBehaviour {
     [SerializeField] bool canPickUp = false;
     [SerializeField] bool shouldDestroyOnPickup = false;
 
-    [HideInInspector] Vector3 rayPosition;
-    [HideInInspector] RectTransform canvasTransform;
-    [HideInInspector] bool isHovering = false;
-    [HideInInspector] GameObject player;
+    Vector3 rayPosition;
+    RectTransform canvasTransform;
+    bool isHovering = false;
+    GameObject player;
+    Transform playerCamera;
 
-    public void Start() {
+    public virtual void Start() {
         canvasTransform = canvas.GetComponent<RectTransform>();
-        player = GameObject.FindGameObjectWithTag("MainCamera");
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerCamera = GameObject.FindGameObjectWithTag("MainCamera").transform;
         text.text = String.Format("(Space) Interact with {0}", StringUtils.SpaceCase(itemType.ToString()));
         RectTransform textRectTransform = text.GetComponent<RectTransform>();
         RectTransform imageRectTransform = image.GetComponent<RectTransform>();
         imageRectTransform.sizeDelta = new Vector2(text.preferredWidth + 10f, imageRectTransform.rect.height);
     }
 
-    public void Update() {
+    public virtual void Update() {
         canvas.enabled = isHovering;
 
         // Follows hit location
         canvasTransform.position = rayPosition;
 
-        // Look at player at all times
-        canvasTransform.LookAt(2f * transform.position - player.transform.position);
+        // Look at player camera at all times
+        canvasTransform.LookAt(2f * transform.position - playerCamera.position);
     }
 
     public void SetHover(bool newIsHovering) {
         isHovering = newIsHovering;
     }
 
+    public virtual void OnInteraction() {
+        if (itemType == ItemType.Candle) {
+            FireLightSource candleLight = GetComponentInChildren<FireLightSource>();
+            candleLight.onToggleLightSource(false);
+        }
+
+        if (shouldDestroyOnPickup) {
+            Destroy(this.gameObject);
+        }
+    }
+
+    #region accessors/mutators
     public ItemType GetItemType {
         get {
             return itemType;
@@ -96,17 +111,7 @@ public class Interactable : MonoBehaviour {
             player = value;
         }
     }
-
-    public virtual void OnInteraction() {
-        if (itemType == ItemType.Candle) {
-            FireLightSource candleLight = GetComponentInChildren<FireLightSource>();
-            candleLight.onToggleLightSource(false);
-        }
-
-        if (shouldDestroyOnPickup) {
-            Destroy(this.gameObject);
-        }
-    }
+    #endregion
 }
 
 public enum ItemType {

@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
+[System.Serializable]
 public class Car : Interactable {
-    public void Start() {
-        this.CanvasTransform = this.GetCanvas.GetComponent<RectTransform>();
-        this.Player = GameObject.FindGameObjectWithTag("MainCamera");
+    public override void Start() {
+        base.Start();
 
         string header = "Things needed to repair the car:";
         string firstItem = "Gas Can";
@@ -18,18 +18,10 @@ public class Car : Interactable {
         imageRectTransform.sizeDelta = new Vector2(this.text.preferredWidth + 10f, this.text.preferredHeight + 10f);
     }
 
-    public void Update() {
-        this.GetCanvas.enabled = this.IsHovering;
-
-        // Follows hit location
-        this.CanvasTransform.position = this.RayPosition;
-
-        // Look at player at all times
-        this.CanvasTransform.LookAt(2f * transform.position - this.Player.transform.position);
-    }
-
     public override void OnInteraction() {
         PlayerInventory inventory = this.Player.GetComponent<PlayerInventory>();
+
+        Debug.Log(inventory.ToString());
 
         if (inventory.hasAllCarItems()) {
             Debug.Log("Success!");

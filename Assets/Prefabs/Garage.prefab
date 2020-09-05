@@ -809,6 +809,11 @@ PrefabInstance:
       propertyPath: lightOnStart
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7356205710819441956, guid: 348a99280e09a034683d214ed0ff8484,
+        type: 3}
+      propertyPath: lightOnStart
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7589610940137080271, guid: 348a99280e09a034683d214ed0ff8484,
         type: 3}
       propertyPath: m_Name

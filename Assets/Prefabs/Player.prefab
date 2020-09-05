@@ -360,7 +360,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4284087898510379819}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -614,6 +614,7 @@ GameObject:
   - component: {fileID: 3285224836411239662}
   - component: {fileID: 7130587900744184869}
   - component: {fileID: 2688404918141269629}
+  - component: {fileID: 7202854600124483099}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -635,6 +636,7 @@ Transform:
   - {fileID: 4284087898510379817}
   - {fileID: 4313324760239776878}
   - {fileID: 801527830}
+  - {fileID: 3428470828039469028}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 179.99998, z: 0}
@@ -1021,7 +1023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiTimer: {fileID: 1451924091}
-  initialTime: 10
+  initialTime: 30
   currentTime: 0
   isTimerRunning: 0
   timerSafetyBuffer: 0
@@ -1044,3 +1046,15 @@ MonoBehaviour:
   timerThreshold: 0
   hasThresholdTriggered: 0
   isInfinite: 0
+--- !u!114 &7202854600124483099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4284087898510546703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe98ee67188e3c0489beb049697ff1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

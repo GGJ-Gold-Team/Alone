@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class DeathTimer : MonoBehaviour {
+    static DeathTimer instance;
+
     [SerializeField] UnityEngine.UI.Text uiTimer;
     [SerializeField] float initialTime;
     [SerializeField] float currentTime;
@@ -12,6 +14,7 @@ public class DeathTimer : MonoBehaviour {
     [SerializeField] Timer deathTimer;
 
     void Start() {
+        instance = this;
         deathTimer = GetComponent<Timer>();
         deathTimer.setTime(initialTime);
         deathTimer.isTimerRunning = true;
@@ -56,5 +59,11 @@ public class DeathTimer : MonoBehaviour {
         deathTimer = GetComponent<Timer>();
         Debug.Log("DeathTimer: " + isInfinite);
         deathTimer.toggleInfinite(isInfinite);
+    }
+
+    public static DeathTimer Instance {
+        get {
+            return instance;
+        }
     }
 }

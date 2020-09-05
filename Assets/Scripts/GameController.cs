@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
-    [SerializeField]
-    GameState gameState = null;
-    [SerializeField]
-    GameObject[] lights;
-    [SerializeField]
-    GameObject playerObject;
+    static GameController instance;
+
+    [SerializeField] static GameObject playerObject;
+    [SerializeField] static GameState gameState = null;
+
+    [SerializeField] GameObject[] lights;
 
     bool isPaused = false;
 
     void Start() {
+        instance = this;
+
         gameState = new GameState();
         playerObject = GameObject.FindGameObjectWithTag("Player");
         playerObject.GetComponent<PlayerScript>().onToggleMenuCallback = onMenuToggle;
-        playerObject.GetComponent<PlayerScript>().onToggleMenu(true);
         lights = GameObject.FindGameObjectsWithTag("SafeZone");
         for (int i = 0; i < lights.Length; i++) {
             lights[i].GetComponentInChildren<FireLightSource>().toggleInfinite(true);
@@ -53,9 +54,21 @@ public class GameController : MonoBehaviour {
         Time.timeScale = 1;
     }
 
+    public GameController Instance {
+        get {
+            return instance;
+        }
+    }
+
     public bool IsPaused {
         get {
             return isPaused;
+        }
+    }
+
+    public GameObject PlayerGameObject {
+        get {
+            return playerObject;
         }
     }
 }

@@ -184,6 +184,19 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!65 &8876957440127401818
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2313258218588766468}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.577911, y: 2.331, z: 11.22898}
+  m_Center: {x: 0.936, y: 0.665, z: 5.113}
 --- !u!114 &3030840214599712612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,14 +210,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightElement: {fileID: 1882221807}
-  particleElement: {fileID: 0}
+  particleElement: {fileID: 6030363203839869598}
   itemTimer: {fileID: 5765582485640376001}
-  safeZone: {fileID: 0}
+  safeZone: {fileID: 8876957440127401818}
   isDepleted: 0
   lightOnStart: 1
   isPlayerTriggered: 0
   deathTimer: {fileID: 0}
-  safetyThreshold: 0
+  safetyThreshold: 30
 --- !u!114 &5765582485640376001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,19 +236,6 @@ MonoBehaviour:
   timerThreshold: 0
   hasThresholdTriggered: 0
   isInfinite: 0
---- !u!65 &8876957440127401818
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2313258218588766468}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6.577911, y: 2.331, z: 11.22898}
-  m_Center: {x: 0.936, y: 0.665, z: 5.113}
 --- !u!1 &4853803772462032343
 GameObject:
   m_ObjectHideFlags: 0

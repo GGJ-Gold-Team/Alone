@@ -26,6 +26,7 @@ public class Timer : MonoBehaviour {
     }
 
     void FixedUpdate() {
+        Debug.Log(string.Format("#TAB {0}", currentTimerValue));
         if (!isInfinite) {
             if (isTimerRunning && currentTimerValue > 0) {
                 currentTimerValue -= Time.fixedDeltaTime;

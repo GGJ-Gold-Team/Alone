@@ -5209,11 +5209,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3750b045bf1a3ee4cb4a642b739d84c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 863835743020215718}
   text: {fileID: 4848549236844142064}
   image: {fileID: 1509718103361572492}
-  itemType: 0
+  canvas: {fileID: 863835743020215718}
+  itemType: 8
   canPickUp: 0
+  shouldDestroyOnPickup: 0
 --- !u!1 &7748746640253123664
 GameObject:
   m_ObjectHideFlags: 0
@@ -5225,8 +5226,9 @@ GameObject:
   - component: {fileID: 1438529039171514314}
   - component: {fileID: 7356205710819441956}
   - component: {fileID: 7284202421900977951}
+  - component: {fileID: 1241400444510825675}
   m_Layer: 8
-  m_Name: GameObject
+  m_Name: Light Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5240,7 +5242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7748746640253123664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5528750809000247571}
@@ -5262,13 +5264,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightElement: {fileID: 7398083929714387119}
   particleElement: {fileID: 1749111088829794722}
-  itemTimer: {fileID: 0}
-  safeZone: {fileID: 0}
+  itemTimer: {fileID: 7284202421900977951}
+  safeZone: {fileID: 1241400444510825675}
   isDepleted: 0
   lightOnStart: 0
   isPlayerTriggered: 0
   deathTimer: {fileID: 0}
-  safetyThreshold: 0
+  safetyThreshold: 30
 --- !u!114 &7284202421900977951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5287,3 +5289,16 @@ MonoBehaviour:
   timerThreshold: 0
   hasThresholdTriggered: 0
   isInfinite: 0
+--- !u!135 &1241400444510825675
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7748746640253123664}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.5
+  m_Center: {x: 0, y: 0, z: 0}

@@ -3,32 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
-    [SerializeField] public bool isMenuOpen = false;
-
-
     public delegate void OnToggleMenuCallback(bool isMenuOpen);
     public OnToggleMenuCallback onToggleMenuCallback;
 
-    void Start() {
-        
-    }
+    bool isMenuOpen = false;
 
     void Update() {
         if (isMenuOpen && Input.GetButtonDown("Interaction")) {
-            onToggleMenu(false);
+            onToggleMenu();
         }
     }
 
-    public void onToggleMenu(bool isOpen) {
-        Debug.Log("PlayerScript: " + isOpen);
-        Debug.Log("PlayerScript33: " + onToggleMenuCallback != null);
-
-        isMenuOpen = isOpen;
-        GetComponent<DeathTimer>().toggleInfinite(isOpen);
-        // GetComponent<Canvas>().enabled = isOpen;
-        GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().CanMoveCamera = !isOpen;
-        GetComponent<Rigidbody>().isKinematic = isOpen;
-        // GetComponentInChildren<Camera>().GetComponent<Rigidbody>().isKinematic = isOpen;
-        onToggleMenuCallback(isOpen);
+    public void onToggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        DeathTimer.Instance.toggleInfinite(isMenuOpen);
+        DeathTimer.Instance.toggleInfinite(isMenuOpen);
+        // GetComponent<Canvas>().enabled = isMenuOpen;
+        GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().CanMoveCamera = !isMenuOpen;
+        GetComponent<Rigidbody>().isKinematic = isMenuOpen;
+        // GetComponentInChildren<Camera>().GetComponent<Rigidbody>().isKinematic = isMenuOpen;
+        onToggleMenuCallback(isMenuOpen);
     }
 }

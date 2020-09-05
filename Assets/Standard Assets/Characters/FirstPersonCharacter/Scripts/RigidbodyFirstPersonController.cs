@@ -139,9 +139,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void Update()
         {
-            Debug.Log("RigidbodyFirstPersonController Update");
             if (canMoveCamera) {
-                Debug.Log("RigidbodyFirstPersonController Update canMoveCamera");
                 RotateView();
             }
 
@@ -226,7 +224,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private Vector2 GetInput()
         {
-            
+
             Vector2 input = new Vector2
                 {
                     x = CrossPlatformInputManager.GetAxis("Horizontal"),
